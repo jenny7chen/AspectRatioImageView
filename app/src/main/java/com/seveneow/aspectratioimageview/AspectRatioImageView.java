@@ -8,8 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.seveneow.aspectratioimageview.R;
-
 public class AspectRatioImageView extends ImageView {
   private float imageRatio = -1;
   private float height = 0;
@@ -37,9 +35,8 @@ public class AspectRatioImageView extends ImageView {
     int width = MeasureSpec.getSize(widthMeasureSpec);
     Drawable image = getDrawable();
     if (imageRatio == -1) {
-      imageRatio = image.getIntrinsicHeight() / image.getIntrinsicWidth();
+      imageRatio = (float) image.getIntrinsicHeight() / (float)image.getIntrinsicWidth();
     }
-
     height = width * imageRatio;
     setMeasuredDimension(width, (int) height);
   }
